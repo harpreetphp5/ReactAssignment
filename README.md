@@ -69,47 +69,6 @@ framework mastery and appropriate use of JS libraries.
 -   CSS: we want to assess your skills writing readable, simple and maintainable
     CSS.
 
-### Sample Screens
-
-#### Category List page:
-
-![](./screens/category-page.png)
-
--   Clicking the My Cart link should display the Cart Popup.
--   Hovering over one of the product tiles should display an overlay prompting
-    the user to Add to Cart or View Details, as below:
-
-![](./screens/product-tile-overlay.png)
-
-#### Cart Popup:
-
-![](./screens/cart-popup.png)
-
--   You should be able to remove items from the cart using the popup.
--   The View Cart button should take you to the cart page.
--   The Checkout button does not need to do anything.
--   When the popup is displayed, clicking anywhere outside it on the page should
-    dismiss the popup.
-
-#### Product details page:
-
-![](./screens/product-details.png)
-
--   Clicking the My Cart link should display the Cart Popup.
--   The quantity buttons should work as expected.
--   Clicking Add to Cart should work as expected.
-
-#### Cart page:
-
-![](./screens/cart.png)
-
--   Clicking the My Cart link should display the Cart Popup.
--   The quantity buttons should work as expected, including updating the total
-    for each line item and the cart total.
--   The remove buttons should work as expected.
--   The Continue Shopping link should return to the homepage.
--   The Checkout button does not need to do anything.
-
 ### Instructions
 
 This assignment requires [Node 14+](https://nodejs.org/en/) and was created
@@ -133,9 +92,9 @@ To run the test suite, run
 npm test
 ```
 
-CHANGES AND INSTRUCTIONS:
+### CHANGES AND INSTRUCTIONS:
 
-Folder Structure is as below:
+Folders and files structure is as below:
 1) cart/
     a) Cart.js //it loads on /cart page and it has CartHeader, CartOverview, and LoadCartItems components.
     b) CartHeader.js //displays PRODUCT QUANTITY TOTAL ACTION static tab
@@ -157,7 +116,7 @@ Folder Structure is as below:
     a) Product.js //component to load individual product by passing title as id.
 
 
-UNIT TESTING:
+### UNIT TESTING:
 
 There are 6 files and multiple tests inside, to run all tests please use `npm test`
 
