@@ -1,3 +1,61 @@
 .Product {
+    width: 80%;
+    margin: 50px auto;
+    display: flex;
+}
+.firstHalf{
+    width: 45%;
+}
+.firstHalf img{
+    width: 100%;
+}
+.secondHalf{
+    width: 39%;
+    margin-left: 6%;
+}
+.actionProductBtn {
+    background: #333;
+    color: #fff !important;
+    padding: 15px 35px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    float: right;
+    border: none;
+}
+li.qtyTab {
+    list-style: none;
+    flex: 0.2;
+    text-align: left;
+    flex-direction: row;
+    margin-top: 10px;
+    height:0;
+}
+input.qtyType {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    background: #aaa;
+    border: none;
+    padding: 15px;
+}
 
+
+div.qtyBox {
+    float: left;
+}
+
+div.qtyBtns {
+    width: 23px;
+    height: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+div.qtyBtns button.second {
+    margin-top: 2px
+}
+.productActionSection {
+    width: 232px;
+    margin: 0 auto;
 }

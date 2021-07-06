@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+Array [
+  <React.Fragment>
+    <hr />
+    <div
+      className="cartWrap"
+    >
+      <li
+        className="productTab cartPage"
+      >
+        <div>
+          <img
+            src="/media/hand-painted-blue-flat-dish.jpg"
+          />
+        </div>
+        <div>
+          <p
+            className="brand"
+          >
+            Kiriko
+          </p>
+          <h3
+            className="title"
+          >
+            Hand Painted Blue Flat Dish
+          </h3>
+          <p
+            className="color"
+          >
+            COLOR: 
+            Blue
+          </p>
+        </div>
+      </li>
+      <li
+        className="qtyTab"
+      >
+        <div
+          className="qtyBox"
+        >
+          <input
+            className="qtyType"
+            type="text"
+            value={1}
+          />
+        </div>
+        <div
+          className="qtyBtns"
+        >
+          <button
+            onClick={[Function]}
+          >
+            +
+          </button>
+          <button
+            className="second"
+            onClick={[Function]}
+          >
+            -
+          </button>
+        </div>
+      </li>
+      <li
+        className="totalTab"
+      >
+        $
+        28.00
+      </li>
+      <li
+        className="actionTab"
+      >
+        <button
+          className="crossDelSimple"
+          onClick={[Function]}
+        >
+          X
+        </button>
+      </li>
+    </div>
+  </React.Fragment>,
+]
+`;

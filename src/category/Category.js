@@ -1,8 +1,23 @@
 import React from 'react';
+import Banner from '../nav/Banner';
+import LoadProducts from './LoadProducts';
 import './Category.css';
 
-const Category = () => {
-    return <div className="Category">Category</div>;
-};
+
+
+const Category = (props) => {
+
+    return (
+        <div>
+            <Banner />
+            <div className="Category">
+                <LoadProducts />
+            </div>
+        </div>
+    )
+}
+
+    
 
 export default Category;
+

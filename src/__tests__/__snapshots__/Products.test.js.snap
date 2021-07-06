@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loads Individual Product 1`] = `<LoadProduct />`;
+
+exports[`renders without crashing 1`] = `<Product />`;

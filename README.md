@@ -132,3 +132,130 @@ To run the test suite, run
 ```
 npm test
 ```
+
+CHANGES AND INSTRUCTIONS:
+
+Folder Structure is as below:
+1) cart/
+    a) Cart.js //it loads on /cart page and it has CartHeader, CartOverview, and LoadCartItems components.
+    b) CartHeader.js //displays PRODUCT QUANTITY TOTAL ACTION static tab
+    c) CartOverview.js // it shows bottom Total and Subtotal on the cart page(default is empty)
+    d) CartPopup.js //it is loaded in App.js file to display popup on top right.
+    d) LoadCartItems.js //it reads cart items state from context and then loads those on cart page.
+2) category/
+    a) Category.js //it calls the component LoadProducts
+    b) LoadProducts.js //it loads products from json file to allProducts state and includes functions to amend cart
+3) helpers/
+    a) cartReducer.js // it is reducer containing actions to amend cart items
+    b) cartTotal.js //it contains two functions 1: shows total price of cart, 2: shows number of items in the cart
+    c) ProductsContext.js //it contains Context to store cart items using Context API.
+4) nav/
+    a) Banner.js //contains Banner under the navigation
+    b) Logo.js //contains logo
+    c) Navigation.js //contains static navigation menu
+5) product/
+    a) Product.js //component to load individual product by passing title as id.
+
+
+UNIT TESTING:
+
+There are 6 files and multiple tests inside, to run all tests please use `npm test`
+
+In order to run individual test just run `npm test LoadCartItems.test.js`
+
+I have selected LoadCartItems.test.js as a special candidate for testing becuase I have tested reducer functionality in it.
+
+Simply run `npm test LoadCartItems.test.js`
+
+The tests done on this file are as below
+    
+    //checking initial state and matching
+    
+    it('should return the initial state', () => {
+            expect(reducer('', {})).toEqual('');
+    });
+
+    //adds an item to cart
+    it('should Add to cart', () => {
+        const mockCartItems2 =
+        {
+            title: "Hand Painted Blue Flat Dish",
+            items: {
+                "title": "Hand Painted Blue Flat Dish",
+                "brand": "Kiriko",
+                "price": 28,
+                "description": "test data",
+                "image": "hand-painted-blue-flat-dish.jpg",
+                "color": "Blue"
+            },
+            qty: 1
+        };
+        expect(reducer([], { type: "ADD_CART", payload: mockCartItems2 })).toEqual([mockCartItems2]);
+
+    });
+
+    //updates quantity when same item is updated
+    it('should set update quantity to 3', () => {
+        const mockCartItems =
+        {
+            title: "Hand Painted Blue Flat Dish",
+            items: {
+                "title": "Hand Painted Blue Flat Dish",
+                "brand": "Kiriko",
+                "price": 28,
+                "description": "test data",
+                "image": "hand-painted-blue-flat-dish.jpg",
+                "color": "Blue"
+            },
+            qty: 1
+        };
+
+        const state = reducer([mockCartItems], { type: "UPDATE_CART", payload: { title: "Hand Painted Blue Flat Dish", qty: 2 } });
+
+        expect(state.map((p) => p.qty ? p.qty : p)).toEqual([3]);
+    });
+
+    //cart length increased when added to cart
+    it('expect state to increase in length by 1 when added to cart', () => {
+        const mockCartItems =
+        {
+            title: "Hand Painted Blue Flat Dish",
+            items: {
+                "title": "Hand Painted Blue Flat Dish",
+                "brand": "Kiriko",
+                "price": 28,
+                "description": "test data",
+                "image": "hand-painted-blue-flat-dish.jpg",
+                "color": "Blue"
+            },
+            qty: 1
+        };
+
+        const newOutput = { "items": { "brand": "Kiriko", "color": "Blue", "description": "test data", "image": "hand-painted-blue-flat-dish.jpg", "price": 28, "title": "New Title" }, "qty": 3, "title": "Hand Painted Blue Flat Dish" };
+
+        const state = reducer([mockCartItems], { type: "ADD_CART", payload: newOutput } );
+
+        expect(state.length).toEqual(2);
+    });
+
+    //cart length decreased when deleted from cart
+    it('expect state to decrease in length by 1 when delete from cart', () => {
+        const mockCartItems =
+        {
+            title: "Hand Painted Blue Flat Dish",
+            items: {
+                "title": "Hand Painted Blue Flat Dish",
+                "brand": "Kiriko",
+                "price": 28,
+                "description": "test data",
+                "image": "hand-painted-blue-flat-dish.jpg",
+                "color": "Blue"
+            },
+            qty: 1
+        };
+
+
+        const state = reducer([mockCartItems], { type: "DELETE_CART", payload: 'Hand Painted Blue Flat Dish' });
+
+        expect(state).toEqual([]);
+    });
